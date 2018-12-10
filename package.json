@@ -1,0 +1,17 @@
+{
+  "name": "jwt-auth",
+  "version": "1.0.0",
+  "description": "Authenticating your Node APIs with JWT",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "George Benjamin",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^8.4.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  }
+}
