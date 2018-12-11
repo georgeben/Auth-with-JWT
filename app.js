@@ -25,17 +25,17 @@ app.use(bps.json());
 
 app.use('/api/v1', api);
 
-app.get('/', (req, res) =>{
-    res.send("Welcome to the API. Read the docs to get started");
+app.get('/', (req, res) => {
+    res.send('Welcome to the API. Read the docs to get started');
 })
 
-app.use((req, res, next) =>{
+app.use((req, res, next) => {
     res.status(404).json({
         message: 'Page not found',
     });
 })
 
-app.use((err, req, res, next) =>{
+app.use((err, req, res, next) => {
     res.status(500).json({
         message:err.message
     })

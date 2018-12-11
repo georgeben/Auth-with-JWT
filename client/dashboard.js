@@ -41,5 +41,4 @@ submitBtn.addEventListener('click', (e) => {
     }
 
     updateInfo(username, email);
-   
-})
+});
