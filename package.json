@@ -10,7 +10,11 @@
   "author": "George Benjamin",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.15",
+    "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
