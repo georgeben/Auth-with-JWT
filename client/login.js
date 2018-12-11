@@ -23,6 +23,7 @@ const signInUser = (username, email) => {
         }
         localStorage.setItem('token', json.token);
         console.log(json.token);
+        window.location.href = 'dashboard.html';
     })
     .catch(err => console.log('Which kind error again na!', err.message));
 };
