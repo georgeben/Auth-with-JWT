@@ -15,6 +15,7 @@
             "vars":"local",
             "args":"none"
         }],
-        "indent":["off", "4"]
+        "indent":["off", "4"],
+        "no-alert":"off"
     }
 }

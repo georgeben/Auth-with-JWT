@@ -2,6 +2,7 @@ const express = require('express');
 const bps = require('body-parser');
 const mongoose = require('mongoose');
 const logger = require('morgan');
+const cors = require('cors');
 
 mongoose.connect('mongodb://localhost/test-users', {
     useNewUrlParser: true,
@@ -9,16 +10,17 @@ mongoose.connect('mongodb://localhost/test-users', {
 
 const db = mongoose.connection;
 
-db.on('connected', () => console.log("Successfully connected to db"));
-db.on('error', () => console.log("Failed to connect to db"));
+db.on('connected', () => console.log('Successfully connected to db'));
+db.on('error', () => console.log('Failed to connect to db'));
 
-const api = require('./api/api')
+const api = require('./api/api');
 
 const app = express();
 
 app.use(logger('dev'));
+app.use(cors());
 
-app.use(bps.urlencoded({extended:false}));
+app.use(bps.urlencoded({extended: false}));
 app.use(bps.json());
 
 app.use('/api/v1', api);
