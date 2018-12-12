@@ -18,14 +18,14 @@ const signInUser = (username, email) => {
     .then(res => res.json())
     .then((json) => {
         if (!json.token) {
-            console.log('Ohhh which kind wahala be this:', json.message);
+            console.log('An error occured', json.message);
             return;
         }
         localStorage.setItem('token', json.token);
         console.log(json.token);
         window.location.href = 'dashboard.html';
     })
-    .catch(err => console.log('Which kind error again na!', err.message));
+    .catch(err => console.log('An error occured', err.message));
 };
 
 submitBtn.addEventListener('click', (e) => {
@@ -33,7 +33,7 @@ submitBtn.addEventListener('click', (e) => {
     let email = emailInput.value;
 
     if (username === '' || email === '') {
-        alert('Please can you just stop trying break this app? I\'m tired');
+        alert('Please fill all fields');
         return;
     }
 

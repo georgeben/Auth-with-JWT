@@ -36,7 +36,7 @@ submitBtn.addEventListener('click', (e) => {
     let email = emailInput.value;
 
     if (username === '' || email === '') {
-        alert('Please can you just stop trying break this app? I\'m tired');
+        alert('Please fill all fields');
         return;
     }
 

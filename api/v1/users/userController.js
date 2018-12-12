@@ -8,7 +8,6 @@ const userModel = require('./userModel');
 
 const verifyToken = (req, res, next) => {
     const token = req.headers.authorization;
-    console.log('My token', token);
     jwt.verify(token, 'supersecret', (err, match) => {
         if (err || match == null) {
             console.log('Tokens didnt match');
@@ -34,20 +33,14 @@ router.get('/users', (req, res) => {
 });
 
 router.post('/users/signup', (req, res) => {
-    console.log(req.body.username);
-    console.log(req.body.email);
-
     userModel.checkIfUserExists(req.body.username, (err, user) => {
         if (user) {
-            console.log('User already exists');
             res.status(401).json({
                 message: 'User already exists',
             });
         }
 
         userModel.createNewUser({
-            username: req.body.username,
-            email: req.body.email,
          }, (error, data) => {
             if (err) {
                 res.status(500).json({
@@ -63,8 +56,6 @@ router.post('/users/signup', (req, res) => {
 });
 
 router.post('/users/login', (req, res) => {
-    console.log(req.body.username);
-    console.log(req.body.email);
     userModel.checkIfUserExists(req.body.username, (err, user) => {
         if (err || user == null) {
             res.status(500).json({
@@ -84,7 +75,6 @@ router.post('/users/login', (req, res) => {
 });
 
 router.put('/users/:username', verifyToken, (req, res) => {
-    console.log("In the PUT", req.params.username);
     userModel.findOne({
         username: req.params.username
     }, (err, user) =>{
@@ -108,7 +98,6 @@ router.put('/users/:username', verifyToken, (req, res) => {
             
         }
     })
-    //res.send('With token')
 })
 
 module.exports = router;
